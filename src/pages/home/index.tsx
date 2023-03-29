@@ -1,6 +1,7 @@
 import React from "react";
 import { Container, Button, Grid, Paper, Box, Typography, TextField } from '@mui/material';
 import { useNotification } from '../../context/notification.context';
+import { HomeValidate } from "../../utils/validateForm";
 
 type HomeType = {
     dni: string,
@@ -8,7 +9,7 @@ type HomeType = {
 };
 
 export const HomePage:React.FC<{}> = () => {
-    const {getError} = useNotification();
+    const {getError, getSuccess} = useNotification();
     const handleClick = () =>{
         getError("Hola") 
     };
@@ -24,7 +25,12 @@ export const HomePage:React.FC<{}> = () => {
 
     const HandleSubmit = (e: React.FormEvent<HTMLInputElement>) =>{
         e.preventDefault();
-        console.log(HomeData);
+        HomeValidate.validate(HomeData).then(() =>{
+            getSuccess(JSON.stringify (HomeData));
+        }).catch((error) =>{
+            getError(error.message)
+        })
+        
     }
 
     return (
