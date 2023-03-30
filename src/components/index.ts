@@ -1,2 +1,2 @@
-import { Notification } from './Notification/index';
-export {Notification} from './Notification';
+export {Notification} from "./Notification";
+export {HeaderComponent} from "./Header";

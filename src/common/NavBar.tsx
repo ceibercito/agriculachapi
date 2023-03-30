@@ -1,7 +1,9 @@
 import React from "react";
 import {Box, AppBar, Toolbar, Container, Grid, Button, Typography, Stack} from "@mui/material";
+import { useNavigate } from "react-router";
 
 export const NavBar: React.FC<{}> = () => {
+    const navigate = useNavigate()
     return(
         <Box sx={{flexGrow: 1}}>
             <AppBar position="fixed">
@@ -13,7 +15,7 @@ export const NavBar: React.FC<{}> = () => {
                             </Grid>
                             <Grid item>
                                 <Stack direction="row" spacing={2}>
-                                <Button variant="contained">Login</Button>        
+                                <Button variant="contained" onClick={()=> navigate("login")}>Login</Button>        
                                 <Button variant="outlined">Register</Button>
                                 </Stack>
                                       

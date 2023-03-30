@@ -31,10 +31,10 @@ export const NotificationProvider:React.FC<{children: JSX.Element}> = ({children
         setOpen(true);
         setMsg(msg);
     }
-    const value = {getError,getSuccess}
+    const value = {getError,getSuccess};
     return(
         <NotificationContext.Provider value={value}>
-           <Notification handleClose={handleClose} open={false} severity={undefined} msg={msg}   />
+           <Notification handleClose={handleClose} open={open} severity={severity} msg={msg}   />
            {children}              
         </NotificationContext.Provider>
     )
