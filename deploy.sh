@@ -8,5 +8,5 @@ echo "BUilding app"
 npm run build
 
 echo "Deploying files to server"
-rsync -avP build/ root@chapidigital.com.pe:/var/www/chapidigital.com.pe/
+rsync -avP build/ /var/www/agricolachapi/build/
 echo "Deployment complete"
